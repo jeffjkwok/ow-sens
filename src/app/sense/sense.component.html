@@ -1,24 +1,56 @@
 <div class="sense">
-  <!-- <h1>Overwatch Sense Calculator</h1> -->
-  <div class="row">
-    <input type="number" readonly> <input type="text" name='beginning'> <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+  <div class="logo-container">
+    <img src="../assets/images/ow.png" alt="" class='logo'>
   </div>
+  <h1>PC Sense Calculator</h1>
   <div class="row">
-    <input type="number" readonly> <input type="number" readonly > <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+    <input type="number" readonly [value]='start*0.5'>
+    <input type="number" name='start' [value]='start' [(ngModel)]="start" placeholder="Enter Starting Sense">
+    <input type="number" readonly [value]='start*1.5'>
+    <input type="radio" name="rowOne" (click)='rowOneLow()'>
+    <input type="radio" name="rowOne" (click)='rowOneHigh()'>
   </div>
-  <div class="row">
-    <input type="number" readonly> <input type="number" readonly > <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+  <div class="row" *ngIf='two'>
+    <input type="number" readonly [value]='two*0.5'>
+    <input type="number" readonly [(ngModel)]='two'>
+    <input type="number" readonly [value]='two*1.5'>
+    <input type="radio" name="rowTwo" (click)='rowTwoLow()'>
+    <input type="radio" name="rowTwo" (click)='rowTwoHigh()'>
   </div>
-  <div class="row">
-    <input type="number" readonly> <input type="number" readonly > <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+  <div class="row" *ngIf='three'>
+    <input type="number" readonly [value]='three*0.6'>
+    <input type="number" readonly [(ngModel)]='three'>
+    <input type="number" readonly [value]='three*1.4'>
+    <input type="radio" name="rowThree" (click)='rowThreeLow()'>
+    <input type="radio" name="rowThree" (click)='rowThreeHigh()'>
   </div>
-  <div class="row">
-    <input type="number" readonly> <input type="number" readonly > <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+  <div class="row" *ngIf='four'>
+    <input type="number" readonly [value]='four*0.7'>
+    <input type="number" readonly [(ngModel)]='four'>
+    <input type="number" readonly [value]='four*1.3'>
+    <input type="radio" name="rowFour" (click)='rowFourLow()'>
+    <input type="radio" name="rowFour" (click)='rowFourHigh()'>
   </div>
-  <div class="row">
-    <input type="number" readonly> <input type="number" readonly > <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+  <div class="row" *ngIf='five'>
+    <input type="number" readonly [value]='five*0.8'>
+    <input type="number" readonly [(ngModel)]='five'>
+    <input type="number" readonly [value]='five*1.2'>
+    <input type="radio" name="rowFive" (click)='rowFiveLow()'>
+    <input type="radio" name="rowFive" (click)='rowFiveHigh()'>
   </div>
-  <div class="row">
-    <input type="number" readonly> <input type="number" readonly > <input type="number" readonly> <input type="radio" name="rowOne"><input type="radio" name="rowOne">
+  <div class="row" *ngIf='six'>
+    <input type="number" readonly [value]='six*0.9'>
+    <input type="number" readonly [(ngModel)]='six'>
+    <input type="number" readonly [value]='six*1.1'>
+    <input type="radio" name="rowSix" (click)='rowSixLow()'>
+    <input type="radio" name="rowSix" (click)='rowSixHigh()'>
   </div>
+  <div class="row" *ngIf='seven'>
+    <input type="number" readonly [value]='seven*0.95'>
+    <input type="number" readonly [(ngModel)]='seven'>
+    <input type="number" readonly [value]='seven*1.05'>
+    <input type="radio" name="rowSeven" (click)='rowSevenLow()'>
+    <input type="radio" name="rowSeven" (click)='rowSevenHigh()'>
+  </div>
+  <h1>Final : {{final}}</h1>
 </div>

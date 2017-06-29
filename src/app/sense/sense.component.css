@@ -8,4 +8,21 @@
   box-shadow: 2px 2px 3px grey;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.75);
+  padding-top: 5em;
+}
+
+.row{
+  margin: .5em;
+}
+
+.logo-container{
+  position: relative;
+}
+
+.logo{
+  position: absolute;
+  height: 5em;
+  top: -4em;
+  right: 17.5em;
+  text-align: center;
 }

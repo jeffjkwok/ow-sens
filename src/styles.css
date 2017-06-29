@@ -1,6 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: 'bignoodletitling';
+    src: url("./assets/fonts/bignoodletitling/big_noodle_titling.ttf");
+}
+
 body{
   background-image: url("assets/images/hanamura.png");
   height: 100%;
   width: 100%;
+  font-family: 'bignoodletitling'
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
