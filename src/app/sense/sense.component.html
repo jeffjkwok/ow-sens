@@ -52,5 +52,5 @@
     <input type="radio" name="rowSeven" (click)='rowSevenLow()'>
     <input type="radio" name="rowSeven" (click)='rowSevenHigh()'>
   </div>
-  <h1>Final : {{final}}</h1>
+  <h1 *ngIf='final' >Final : {{final}}</h1>
 </div>
