@@ -26,3 +26,10 @@
   height: 5em;
   text-align: center;
 }
+
+h2{
+  color: white;
+  text-align: center;
+  margin-top: 0.5em;
+  cursor: pointer;
+}

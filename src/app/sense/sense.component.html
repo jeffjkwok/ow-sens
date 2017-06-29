@@ -10,6 +10,22 @@
     <input type="radio" name="rowOne" (click)='rowOneLow()'>
     <input type="radio" name="rowOne" (click)='rowOneHigh()'>
   </div>
+  <div class="row" *ngIf="start">
+    <table>
+      <thead>
+        <td>Low</td>
+        <td>Middle</td>
+        <td>High</td>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{start*0.5}}</td>
+          <td>{{start}}</td>
+          <td>{{start*1.5}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <div class="row" *ngIf='two'>
     <input type="number" readonly [value]='two*0.5'>
     <input type="number" readonly [(ngModel)]='two'>
@@ -54,3 +70,4 @@
   </div>
   <h1 *ngIf='final' >Final : {{final}}</h1>
 </div>
+<h2>How Does It Work?</h2>
