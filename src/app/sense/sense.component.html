@@ -3,36 +3,59 @@
     <img src="../assets/images/ow.png" alt="" class='logo'>
   </div>
   <h1>PC Sense Calculator</h1>
+
   <div class="row">
-    <input type="number" readonly [value]='start*0.5'>
-    <input type="number" name='start' [value]='start' [(ngModel)]="start" placeholder="Enter Starting Sense">
-    <input type="number" readonly [value]='start*1.5'>
-    <input type="radio" name="rowOne" (click)='rowOneLow()'>
-    <input type="radio" name="rowOne" (click)='rowOneHigh()'>
+    <input type="number" [(ngModel)]="start" (ngModelChange)='calculateStart(start)' placeholder="Enter Starting Sense">
   </div>
+
   <div class="row" *ngIf="start">
     <table>
       <thead>
-        <td>Low</td>
-        <td>Middle</td>
-        <td>High</td>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
       </thead>
       <tbody>
-        <tr>
-          <td>{{start*0.5}}</td>
+        <tr class='start'>
+          <td>{{startLow}}</td>
           <td>{{start}}</td>
-          <td>{{start*1.5}}</td>
+          <td>{{startHigh}}</td>
+          <td class='optionOne' (click)='rowOne("low", $event)' >Low</td>
+          <td class='optionOne' (click)='rowOne("high", $event)'>High</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="row" *ngIf='two'>
+
+  <div class="row" *ngIf="two">
+    <table>
+      <thead>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{twoLow}}</td>
+          <td>{{two}}</td>
+          <td>{{twoHigh}}</td>
+          <td (click)='rowTwoLow()'>Low</td>
+          <td (click)='rowTwoHigh()'>High</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <div class="row" *ngIf='two'>
     <input type="number" readonly [value]='two*0.5'>
     <input type="number" readonly [(ngModel)]='two'>
     <input type="number" readonly [value]='two*1.5'>
     <input type="radio" name="rowTwo" (click)='rowTwoLow()'>
     <input type="radio" name="rowTwo" (click)='rowTwoHigh()'>
-  </div>
+  </div> -->
   <div class="row" *ngIf='three'>
     <input type="number" readonly [value]='three*0.6'>
     <input type="number" readonly [(ngModel)]='three'>

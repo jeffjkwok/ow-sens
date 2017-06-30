@@ -8,12 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SenseComponent implements OnInit {
   start: number;
+  startLow: number;
+  startHigh: number;
   two: number;
+  twoLow: number;
+  twoHigh: number;
   three: number;
+  threeLow: number;
+  threeHigh: number
   four: number;
+  fourLow: number;
+  fourHigh: number;
   five: number;
+  fiveLow: number;
+  fiveHigh: number;
   six: number;
+  sixLow: number;
+  sixHigh: number;
   seven: number;
+  sevenLow: number;
+  sevenHigh: number;
   final: number;
 
   constructor() { }
@@ -21,12 +35,22 @@ export class SenseComponent implements OnInit {
   ngOnInit() {
   }
 
-  rowOneLow(){
-    this.two = Math.round((this.start + this.start*0.5)/2*100)/100
+
+  calculateStart(start){
+    this.startLow = Math.round((this.start*0.5)*100)/100;
+    this.startHigh = Math.round((this.start*1.5)*100)/100;
   }
-  rowOneHigh(){
-    this.two = Math.round((this.start + this.start*1.5)/2*100)/100
+
+  rowOne(selected, event){
+    if(selected == 'low'){
+      this.two = Math.round((this.start + this.start*0.5)/2*100)/100;
+    } else {
+      this.two = Math.round((this.start + this.start*1.5)/2*100)/100
+    }
+    this.twoLow = Math.round((this.two*0.5)*100)/100;
+    this.twoHigh = Math.round((this.two*1.5)*100)/100;
   }
+
   rowTwoLow(){
     this.three = Math.round((this.two + this.two*0.5)/2*100)/100
   }
