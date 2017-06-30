@@ -1,6 +1,6 @@
 <div class="sense">
   <div class="logo-container">
-    <img src="../assets/images/ow.png" alt="" class='logo'>
+    <a href="/"><img src="../assets/images/ow.png" alt="" class='logo'></a>
   </div>
   <h1>PC Sense Calculator</h1>
 
@@ -18,12 +18,12 @@
         <th> </th>
       </thead>
       <tbody>
-        <tr class='start'>
-          <td>{{startLow}}</td>
+        <tr>
+          <td [ngStyle]='{"color": startLowBool ? "#FAA02E" : "black"}'>{{startLow}}</td>
           <td>{{start}}</td>
-          <td>{{startHigh}}</td>
-          <td class='optionOne' (click)='rowOne("low", $event)' >Low</td>
-          <td class='optionOne' (click)='rowOne("high", $event)'>High</td>
+          <td [ngStyle]='{"color": startHighBool ? "#FAA02E" : "black"}'>{{startHigh}}</td>
+          <td (click)='rowOne("low")' [ngStyle]='{"text-decoration": startLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowOne("high")' [ngStyle]='{"text-decoration": startHighBool ? "underline" : "none"}' class='option'>High</td>
         </tr>
       </tbody>
     </table>
@@ -40,57 +40,121 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{twoLow}}</td>
+          <td [ngStyle]='{"color": twoLowBool ? "#FAA02E" : "black"}'>{{twoLow}}</td>
           <td>{{two}}</td>
-          <td>{{twoHigh}}</td>
-          <td (click)='rowTwoLow()'>Low</td>
-          <td (click)='rowTwoHigh()'>High</td>
+          <td [ngStyle]='{"color": twoHighBool ? "#FAA02E" : "black"}'>{{twoHigh}}</td>
+          <td (click)='rowTwo("low")' [ngStyle]='{"text-decoration": twoLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowTwo("high")' [ngStyle]='{"text-decoration": twoHighBool ? "underline" : "none"}' class='option'>High</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <!-- <div class="row" *ngIf='two'>
-    <input type="number" readonly [value]='two*0.5'>
-    <input type="number" readonly [(ngModel)]='two'>
-    <input type="number" readonly [value]='two*1.5'>
-    <input type="radio" name="rowTwo" (click)='rowTwoLow()'>
-    <input type="radio" name="rowTwo" (click)='rowTwoHigh()'>
-  </div> -->
-  <div class="row" *ngIf='three'>
-    <input type="number" readonly [value]='three*0.6'>
-    <input type="number" readonly [(ngModel)]='three'>
-    <input type="number" readonly [value]='three*1.4'>
-    <input type="radio" name="rowThree" (click)='rowThreeLow()'>
-    <input type="radio" name="rowThree" (click)='rowThreeHigh()'>
+
+  <div class="row" *ngIf="three">
+    <table>
+      <thead>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td [ngStyle]='{"color": threeLowBool ? "#FAA02E" : "black"}'>{{threeLow}}</td>
+          <td>{{three}}</td>
+          <td [ngStyle]='{"color": threeHighBool ? "#FAA02E" : "black"}'>{{threeHigh}}</td>
+          <td (click)='rowThree("low")' [ngStyle]='{"text-decoration": threeLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowThree("high")' [ngStyle]='{"text-decoration": threeHighBool ? "underline" : "none"}' class='option'>High</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row" *ngIf='four'>
-    <input type="number" readonly [value]='four*0.7'>
-    <input type="number" readonly [(ngModel)]='four'>
-    <input type="number" readonly [value]='four*1.3'>
-    <input type="radio" name="rowFour" (click)='rowFourLow()'>
-    <input type="radio" name="rowFour" (click)='rowFourHigh()'>
+
+  <div class="row" *ngIf="four">
+    <table>
+      <thead>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td [ngStyle]='{"color": fourLowBool ? "#FAA02E" : "black"}'>{{fourLow}}</td>
+          <td>{{four}}</td>
+          <td [ngStyle]='{"color": fourHighBool ? "#FAA02E" : "black"}'>{{fourHigh}}</td>
+          <td (click)='rowFour("low")' [ngStyle]='{"text-decoration": fourLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowFour("high")' [ngStyle]='{"text-decoration": fourHighBool ? "underline" : "none"}' class='option'>High</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row" *ngIf='five'>
-    <input type="number" readonly [value]='five*0.8'>
-    <input type="number" readonly [(ngModel)]='five'>
-    <input type="number" readonly [value]='five*1.2'>
-    <input type="radio" name="rowFive" (click)='rowFiveLow()'>
-    <input type="radio" name="rowFive" (click)='rowFiveHigh()'>
+
+  <div class="row" *ngIf="five">
+    <table>
+      <thead>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td [ngStyle]='{"color": fiveLowBool ? "#FAA02E" : "black"}'>{{fiveLow}}</td>
+          <td>{{five}}</td>
+          <td [ngStyle]='{"color": fiveHighBool ? "#FAA02E" : "black"}'>{{fiveHigh}}</td>
+          <td (click)='rowFive("low")' [ngStyle]='{"text-decoration": fiveLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowFive("high")' [ngStyle]='{"text-decoration": fiveHighBool ? "underline" : "none"}' class='option'>High</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row" *ngIf='six'>
-    <input type="number" readonly [value]='six*0.9'>
-    <input type="number" readonly [(ngModel)]='six'>
-    <input type="number" readonly [value]='six*1.1'>
-    <input type="radio" name="rowSix" (click)='rowSixLow()'>
-    <input type="radio" name="rowSix" (click)='rowSixHigh()'>
+
+  <div class="row" *ngIf="six">
+    <table>
+      <thead>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td [ngStyle]='{"color": sixLowBool ? "#FAA02E" : "black"}'>{{sixLow}}</td>
+          <td>{{six}}</td>
+          <td [ngStyle]='{"color": sixHighBool ? "#FAA02E" : "black"}'>{{sixHigh}}</td>
+          <td (click)='rowSix("low")' [ngStyle]='{"text-decoration": sixLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowSix("high")' [ngStyle]='{"text-decoration": sixHighBool ? "underline" : "none"}' class='option'>High</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row" *ngIf='seven'>
-    <input type="number" readonly [value]='seven*0.95'>
-    <input type="number" readonly [(ngModel)]='seven'>
-    <input type="number" readonly [value]='seven*1.05'>
-    <input type="radio" name="rowSeven" (click)='rowSevenLow()'>
-    <input type="radio" name="rowSeven" (click)='rowSevenHigh()'>
+
+  <div class="row" *ngIf="seven">
+    <table>
+      <thead>
+        <th>Low</th>
+        <th>Reference</th>
+        <th>High</th>
+        <th> </th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td [ngStyle]='{"color": sevenLowBool ? "#FAA02E" : "black"}'>{{sevenLow}}</td>
+          <td>{{seven}}</td>
+          <td [ngStyle]='{"color": sevenHighBool ? "#FAA02E" : "black"}'>{{sevenHigh}}</td>
+          <td (click)='rowSeven("low")' [ngStyle]='{"text-decoration": sevenLowBool ? "underline" : "none"}' class='option'>Low</td>
+          <td (click)='rowSeven("high")' [ngStyle]='{"text-decoration": sevenHighBool ? "underline" : "none"}' class='option'>High</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
   <h1 *ngIf='final' >Final : {{final}}</h1>
 </div>
 <h2>How Does It Work?</h2>
